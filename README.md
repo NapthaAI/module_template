@@ -58,6 +58,10 @@ You can install the module using:
 poetry install
 ```
 
+### Making Changes to the Code
+
+The main place to make changes to the code is in the ```run.py``` file. This is the default entry point that will be used when the module run is initiated. The run function can instantiate a class (e.g. an agent class) or call a function. 
+
 ### Making Changes to the Configs
 
 You can make changes to the configs in the ```configs``` folder. For example:
