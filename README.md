@@ -121,8 +121,8 @@ You can make changes to the configs in the ```configs``` folder. The ```deployme
 After making changes to the module, testing usually involves the following steps:
 
 1. Test the module locally without the Naptha Node
-2. Test the module on a local Naptha Node (with a local Hub)
-3. Test the module on a hosted Naptha Node (with the hosted Naptha Hub)
+2. Publish the module on the Naptha Hub
+3. Test running the module on a hosted Naptha Node
 
 ### 🖥️ Test the Module Locally without Node
 
@@ -134,17 +134,13 @@ poetry run python <module_name>/run.py
 
 Now you can iterate on the module and commit your changes.
 
-### 🌐 Test the Module on a Local Node (with a Local Hub)
+### 🌐 Publish the Module on the Naptha Hub
 
 For this step, you will need to:
 
-1. Run your own Naptha Node and Hub. Follow the instructions [here](https://github.com/NapthaAI/node) (still private, please reach out if you'd like access) to run your own Naptha Node and Hub. To run a local Hub, set ```LOCAL_HUB=True``` in the .env file for the NapthaAI/node repository.
-2. Install the Naptha SDK using the [instructions here](https://github.com/NapthaAI/naptha-sdk). To use the SDK with your local node and hub, set ```NODE_URL=http://localhost:7001``` and ```HUB_URL=ws://localhost:3001/rpc``` in the .env file for the NapthaAI/naptha-sdk repository.
+* Install the Naptha SDK using the [instructions here](https://github.com/NapthaAI/naptha-sdk). To use the SDK with your local node and hub, set ```NODE_URL=http://localhost:7001``` and ```HUB_URL=ws://localhost:3001/rpc``` in the .env file for the NapthaAI/naptha-sdk repository.
 
-
-#### Running the Module on a local Naptha Node
-
-First, you can push the module to your GitHub or IPFS (or both). If using GitHub, make sure to change the remote origin. Also add a new module version number using e.g.:
+First, you need to push the module code to your GitHub or IPFS (or both). If using GitHub, make sure to change the remote origin. Also add a new module version number using e.g.:
 
 ```bash
 git tag v0.1
@@ -188,9 +184,9 @@ Alternatively, you can store the module on IPFS and register on the Naptha Hub b
 naptha publish -r
 ```
 
-If successful, you will an output with the IPFS hash, and a link where you can test download via the browser http://provider.akash.pro:30584/ipfs/<ipfs_hash>.
+If successful, you will see an output with the IPFS hash, and a link where you can test download via the browser http://provider.akash.pro:30584/ipfs/<ipfs_hash>.
 
-If you would also like to publish subdeployments, you can use:
+If your module makes use of other modules (e.g. your agent module uses a tool module or memory module), you may also want to publish those sub-modules using:
 
 ```bash
 naptha publish -r -s
@@ -240,15 +236,19 @@ naptha agents
 
 Or the equivalent command for the module type you are using (e.g. ```naptha tools```, ```naptha orchestrators```, ```naptha environments```, ```naptha kbs```, ```naptha memories```, ```naptha personas```).
 
-Once the module is published, you can run it on a local Naptha Node using the Naptha SDK:
+### ☁️ Test the Module on a hosted Node (with the hosted Naptha Hub)
+
+Once the module is published, you can run it on a hosted Naptha Node using the Naptha SDK (to use the hosted node you should set NODE_URL=http://node.naptha.ai in the .env file):
 
 ```bash
 naptha run agent:module_template -p "func_name='func', func_input_data='gm...'" 
 ```
 
-For troubleshooting, see the Troubleshooting section in NapthaAI/node for checking the logs.
+Inspect the outputs to see if the module ran successfully. We aim to provide useful error outputs to help developers to debug issues with their module using the hosted node. However, you may get error outputs that are not explanatory. If this is the case, please reach out in the #support channel of our discord or via email (team@naptha.ai). 
 
-### ☁️ Test the Module on a hosted Node (with the hosted Naptha Hub)
+## Run your own Naptha Node 
+
+More extensive logs can be inspected when you run your own Naptha Node. Follow the instructions [here](https://github.com/NapthaAI/node) (still private, please reach out if you'd like access) to run your own Naptha Node. For troubleshooting, see the Troubleshooting section in NapthaAI/node for checking the logs.
 
 ## 💰 Bounties and Microgrants
 
