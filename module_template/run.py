@@ -46,7 +46,7 @@ if __name__ == "__main__":
         "inputs": input_params,
         "deployment": deployment,
         "consumer_id": naptha.user.id,
-        "signature": sign_consumer_id(naptha.user.id, os.getenv("PRIVATE_KEY"))
+        "signature": sign_consumer_id(naptha.user.id, os.getenv("PRIVATE_KEY_FULL_PATH"))
     }
 
     response = run(module_run)

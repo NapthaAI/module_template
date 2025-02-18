@@ -88,7 +88,7 @@ Create a copy of the .env file:
 cp .env.example .env
 ```
 
-If your module calls others modules (e.g. using Agent(), Tool(), or Environment()), you need to set a ```PRIVATE_KEY``` in the .env file (e.g. this can be the same as the ```PRIVATE_KEY``` you use with the Naptha SDK). If using OpenAI, make sure to set the ```OPENAI_API_KEY``` environment variable.
+If your module calls others modules (e.g. using Agent(), Tool(), or Environment()), you need to set a ```PRIVATE_KEY_FULL_PATH``` in the .env file (e.g. this can be the same as the ```PRIVATE_KEY_FULL_PATH``` you use with the Naptha SDK). If using OpenAI, make sure to set the ```OPENAI_API_KEY``` environment variable.
 
 You can install the module using:
 
