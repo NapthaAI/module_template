@@ -138,7 +138,7 @@ Now you can iterate on the module and commit your changes.
 
 For this step, you will need to:
 
-* Install the Naptha SDK using the [instructions here](https://github.com/NapthaAI/naptha-sdk). To use the SDK with your local node and hub, set ```NODE_URL=http://localhost:7001``` and ```HUB_URL=ws://localhost:3001/rpc``` in the .env file for the NapthaAI/naptha-sdk repository.
+* Install the Naptha SDK using the [instructions here](https://github.com/NapthaAI/naptha-sdk). To use the SDK with your local node and public hub, set ```NODE_URL=http://localhost:7001``` and ```HUB_URL=wss://hub.naptha.ai/rpc``` in the .env file for the NapthaAI/naptha-sdk repository.
 
 First, you need to push the module code to your GitHub or IPFS (or both). If using GitHub, make sure to change the remote origin. Also add a new module version number using e.g.:
 
